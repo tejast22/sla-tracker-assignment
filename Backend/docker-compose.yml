@@ -1,0 +1,17 @@
+# backend/docker-compose.yml
+services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: sla-tracker-db
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: adminpassword
+      POSTGRES_DB: sla_tracker
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
